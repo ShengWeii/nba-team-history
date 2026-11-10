@@ -1,0 +1,566 @@
+/* =========================================================
+   NBA 球隊歷史介紹網站：全站唯一樣式檔
+   球隊代表色由 main.js 依 data/teams.js 設定到
+   --team-primary / --team-secondary，新增球隊不需修改此檔。
+   ========================================================= */
+
+:root {
+  --bg: #0c0e13;
+  --surface: #151922;
+  --surface-2: #1c212d;
+  --border: #2a3040;
+  --text: #f2f4f8;
+  --text-muted: #9aa3b5;
+  --accent: #ff6b2c;            /* 首頁預設重點色（籃球橘） */
+  --team-primary: #2a3040;      /* 球隊頁預設，會被 main.js 覆蓋 */
+  --team-secondary: #ff6b2c;
+  --radius: 14px;
+  --max-width: 1080px;
+  --font-body: "Noto Sans TC", system-ui, -apple-system, "PingFang TC", sans-serif;
+  --font-display: "Oswald", "Noto Sans TC", sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; }
+
+h1, h2, h3 { line-height: 1.3; margin: 0; }
+
+p { margin: 0; }
+
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ---------- 頂部導覽列 ---------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(12, 14, 19, 0.88);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+}
+
+.site-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  gap: 16px;
+}
+
+.brand {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.1rem;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.brand span { color: var(--accent); }
+
+.header-links {
+  display: flex;
+  gap: 18px;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.header-links a { text-decoration: none; }
+.header-links a:hover { color: var(--text); }
+
+/* ---------- 首頁 hero ---------- */
+.home-hero {
+  padding: 72px 0 56px;
+  background:
+    radial-gradient(circle at 85% 20%, rgba(255, 107, 44, 0.22), transparent 45%),
+    radial-gradient(circle at 10% 90%, rgba(29, 66, 138, 0.35), transparent 50%);
+  border-bottom: 1px solid var(--border);
+}
+
+.eyebrow {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+
+.home-hero h1 {
+  font-size: clamp(2rem, 6vw, 3.4rem);
+  font-weight: 900;
+  margin-bottom: 16px;
+}
+
+.home-hero .lead {
+  max-width: 620px;
+  color: var(--text-muted);
+  font-size: 1.05rem;
+}
+
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  margin-top: 36px;
+}
+
+.stat-number {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 2.6rem;
+  font-weight: 600;
+  line-height: 1;
+  color: var(--accent);
+}
+
+.stat-label {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+/* ---------- 分區與球隊卡片 ---------- */
+.conference { padding: 48px 0 8px; }
+
+.conference-title {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.conference-count {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: var(--text-muted);
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 18px;
+}
+
+.team-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  text-decoration: none;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.team-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--team-secondary);
+}
+
+.team-card-bar {
+  display: block;
+  height: 8px;
+  background: linear-gradient(90deg, var(--team-primary) 0 70%, var(--team-secondary) 70% 100%);
+}
+
+.team-card-body { padding: 20px 22px 22px; }
+
+.team-card-division {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.team-card-name { font-size: 1.35rem; margin-top: 2px; }
+
+.team-card-en {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.team-card-tagline {
+  margin-top: 12px;
+  font-size: 0.92rem;
+}
+
+.team-card-meta {
+  display: flex;
+  gap: 20px;
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.team-card-meta strong {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--team-secondary);
+}
+
+.team-grid-compact .team-card-tagline { display: none; }
+
+.empty { color: var(--text-muted); }
+
+/* ---------- 關於本站 ---------- */
+.about {
+  margin: 56px 0 24px;
+  padding: 32px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.about h2 { font-size: 1.3rem; margin-bottom: 12px; }
+
+.about p + p { margin-top: 10px; }
+
+.about p { color: var(--text-muted); }
+
+.about code {
+  padding: 2px 6px;
+  border-radius: 6px;
+  background: var(--surface-2);
+  color: var(--text);
+  font-size: 0.9em;
+}
+
+/* ---------- 球隊頁 hero ---------- */
+.team-hero {
+  position: relative;
+  padding: 64px 0 52px;
+  background:
+    linear-gradient(135deg, var(--team-primary) 0%, var(--team-primary) 55%, var(--bg) 100%);
+  overflow: hidden;
+}
+
+.team-hero::after {
+  content: "";
+  position: absolute;
+  right: -80px;
+  top: -80px;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  border: 36px solid var(--team-secondary);
+  opacity: 0.25;
+}
+
+.team-hero .container { position: relative; z-index: 1; }
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 20px;
+  font-size: 0.9rem;
+  text-decoration: none;
+  opacity: 0.85;
+}
+
+.back-link:hover { opacity: 1; }
+
+.team-hero h1 {
+  font-size: clamp(2.2rem, 7vw, 3.6rem);
+  font-weight: 900;
+}
+
+.team-hero .team-en {
+  font-family: var(--font-display);
+  font-size: clamp(1rem, 3vw, 1.3rem);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--team-secondary);
+}
+
+.team-hero .tagline {
+  margin-top: 16px;
+  font-size: 1.1rem;
+  max-width: 560px;
+}
+
+/* 區塊目錄 */
+.section-nav {
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.section-nav ul {
+  display: flex;
+  gap: 6px;
+  margin: 0;
+  padding: 10px 0;
+  list-style: none;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.section-nav a {
+  display: block;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 0.88rem;
+  white-space: nowrap;
+  text-decoration: none;
+  color: var(--text-muted);
+}
+
+.section-nav a:hover {
+  background: var(--surface-2);
+  color: var(--text);
+}
+
+/* ---------- 球隊頁區塊 ---------- */
+.section {
+  padding: 52px 0 8px;
+  scroll-margin-top: 70px;
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 1.5rem;
+  margin-bottom: 24px;
+}
+
+.section-title::before {
+  content: "";
+  width: 6px;
+  height: 1.3em;
+  border-radius: 3px;
+  background: var(--team-secondary);
+}
+
+/* 1. 基本資料 */
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 14px;
+  margin: 0;
+}
+
+.info-item {
+  padding: 16px 18px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.info-item dt {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.info-item dd {
+  margin: 4px 0 0;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.swatches { display: flex; gap: 8px; margin-top: 6px; }
+
+.swatch {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 2px solid var(--border);
+}
+
+.swatch-primary { background: var(--team-primary); }
+.swatch-secondary { background: var(--team-secondary); }
+
+/* 2. 隊史時間軸 */
+.timeline {
+  position: relative;
+  margin: 0;
+  padding: 0 0 0 28px;
+  list-style: none;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 7px;
+  top: 6px;
+  bottom: 6px;
+  width: 2px;
+  background: var(--border);
+}
+
+.timeline-item {
+  position: relative;
+  padding-bottom: 28px;
+}
+
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: -28px;
+  top: 6px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 3px solid var(--team-secondary);
+}
+
+.timeline-year {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--team-secondary);
+}
+
+.timeline-body h3 { font-size: 1.1rem; margin: 2px 0 4px; }
+
+.timeline-body p { color: var(--text-muted); }
+
+/* 3. 代表球星 */
+.legend-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.legend-card {
+  padding: 20px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-top: 4px solid var(--team-primary);
+  border-radius: var(--radius);
+}
+
+.legend-card h3 { font-size: 1.1rem; }
+
+.legend-card .en {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+}
+
+.legend-era {
+  margin: 8px 0;
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  color: var(--team-secondary);
+}
+
+.legend-card p:last-child { font-size: 0.93rem; }
+
+/* 4. 經典時刻 */
+.moment-list { display: grid; gap: 16px; }
+
+.moment-card {
+  padding: 22px 24px;
+  background: linear-gradient(90deg, var(--surface-2), var(--surface));
+  border-left: 4px solid var(--team-secondary);
+  border-radius: var(--radius);
+}
+
+.moment-date {
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+  color: var(--team-secondary);
+}
+
+.moment-card h3 { font-size: 1.15rem; margin: 2px 0 8px; }
+
+.moment-card p:last-child { color: var(--text-muted); }
+
+/* 5. 冠軍年份 */
+.title-count {
+  margin-bottom: 16px;
+  color: var(--text-muted);
+}
+
+.title-count strong {
+  font-family: var(--font-display);
+  font-size: 2.4rem;
+  color: var(--team-secondary);
+  margin-right: 6px;
+}
+
+.title-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.title-list li {
+  padding: 6px 16px;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  background: var(--surface);
+  border: 1px solid var(--team-secondary);
+  border-radius: 999px;
+}
+
+/* 6. 參考資料 */
+.ref-list {
+  margin: 0;
+  padding-left: 20px;
+  color: var(--text-muted);
+}
+
+.ref-list a { color: var(--text); text-underline-offset: 3px; }
+.ref-list a:hover { color: var(--team-secondary); }
+
+/* 其他球隊 */
+.more-teams { padding: 56px 0 16px; }
+
+.more-teams h2 { font-size: 1.3rem; margin-bottom: 18px; }
+
+/* ---------- 頁尾 ---------- */
+.site-footer {
+  margin-top: 56px;
+  padding: 28px 0 40px;
+  border-top: 1px solid var(--border);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.site-footer p + p { margin-top: 4px; }
+
+/* ---------- 手機 ---------- */
+@media (max-width: 600px) {
+  .container { padding: 0 16px; }
+  .header-links { display: none; }
+  .home-hero { padding: 48px 0 40px; }
+  .stats { gap: 28px; }
+  .team-hero { padding: 44px 0 36px; }
+  .team-hero::after { width: 200px; height: 200px; border-width: 24px; right: -70px; top: -70px; }
+  .about { padding: 22px; }
+  .moment-card { padding: 18px; }
+}

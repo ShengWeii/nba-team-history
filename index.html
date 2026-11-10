@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NBA 球隊史｜三分鐘認識一支球隊</title>
+  <meta name="description" content="用繁體中文介紹 NBA 各球隊的歷史、代表球星與冠軍年份。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700;900&family=Oswald:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="index.html">NBA <span>球隊史</span></a>
+      <nav class="header-links">
+        <a href="#teams">所有球隊</a>
+        <a href="#about">關於本站</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="home-hero">
+      <div class="container">
+        <p class="eyebrow">NBA Team History</p>
+        <h1>三分鐘，認識一支 NBA 球隊</h1>
+        <p class="lead">每支球隊一頁：它從哪裡來、經歷過哪些重要年代、有哪些代表球星、拿過幾座冠軍。寫給剛開始看球的你。</p>
+        <div class="stats">
+          <div>
+            <span class="stat-number" data-stat="teams">0</span>
+            <span class="stat-label">已收錄球隊</span>
+          </div>
+          <div>
+            <span class="stat-number">30</span>
+            <span class="stat-label">NBA 球隊總數</span>
+          </div>
+          <div>
+            <span class="stat-number" data-stat="titles">0</span>
+            <span class="stat-label">收錄球隊冠軍總數</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="container" id="teams" data-team-grid></div>
+
+    <div class="container">
+      <section class="about" id="about">
+        <h2>關於本站</h2>
+        <p>這是政大「生成式 AI」課程的作業：先寫一份給 AI 閱讀的規則文件 <code>CLAUDE.md</code>，再讓 AI 依照規則製作網頁。</p>
+        <p>每支球隊的頁面都有相同的 6 個區塊：基本資料、隊史時間軸、代表球星、經典時刻、冠軍年份、參考資料。之後只要對 AI 說「新增一支球隊」，它就能照同一套規則做出風格一致的新頁面，首頁卡片也會自動出現。</p>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>本站為非官方粉絲介紹網站，與 NBA 及各球隊無關。球隊名稱與資料僅供學習用途。</p>
+      <p>資料更新至 2026 年 11 月</p>
+    </div>
+  </footer>
+
+  <script src="data/teams.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

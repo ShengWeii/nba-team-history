@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<!--
+  球隊頁面模板（規則見 CLAUDE.md 第 6、8 節）
+  使用方式：
+  1. 複製本檔為 teams/<id>.html
+  2. 把所有 {{...}} 換成真實內容
+  3. 依數量要求增減 <li> / <article>（時間軸 4～6、球星 3～5、經典時刻 2～3、參考資料至少 2）
+  4. 完成後刪除所有「模板說明」註解，並在 data/teams.js 加一筆資料
+  不可增減或調換 6 個 <section> 的順序；不可加 inline style。
+-->
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{中文全名}}｜NBA 球隊史</title>
+  <meta name="description" content="{{中文全名}}的球隊歷史、代表球星與冠軍年份。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700;900&family=Oswald:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body data-team="{{id}}">
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="../index.html">NBA <span>球隊史</span></a>
+      <nav class="header-links">
+        <a href="../index.html#teams">所有球隊</a>
+        <a href="../index.html#about">關於本站</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="team-hero">
+      <div class="container">
+        <a class="back-link" href="../index.html">← 回到所有球隊</a>
+        <p class="team-en">{{英文全名}}</p>
+        <h1>{{中文全名}}</h1>
+        <p class="tagline">{{一句話標語，20 字內}}</p>
+      </div>
+    </section>
+
+    <nav class="section-nav" aria-label="頁面區塊">
+      <div class="container">
+        <ul>
+          <li><a href="#basic-info">基本資料</a></li>
+          <li><a href="#timeline">隊史時間軸</a></li>
+          <li><a href="#legends">代表球星</a></li>
+          <li><a href="#moments">經典時刻</a></li>
+          <li><a href="#championships">冠軍年份</a></li>
+          <li><a href="#references">參考資料</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container">
+      <!-- 1. 基本資料：固定 6 欄，不可增減 -->
+      <section class="section" id="basic-info">
+        <h2 class="section-title">基本資料</h2>
+        <dl class="info-grid">
+          <div class="info-item"><dt>成立年份</dt><dd>{{成立年份}}</dd></div>
+          <div class="info-item"><dt>城市</dt><dd>{{城市}}</dd></div>
+          <div class="info-item"><dt>主場</dt><dd>{{主場名稱}}</dd></div>
+          <div class="info-item"><dt>分區</dt><dd>{{東區／西區}}・{{分組}}</dd></div>
+          <div class="info-item"><dt>總冠軍數</dt><dd>{{數字}} 座</dd></div>
+          <div class="info-item"><dt>球隊代表色</dt><dd><span class="swatches"><span class="swatch swatch-primary"></span><span class="swatch swatch-secondary"></span></span></dd></div>
+        </dl>
+      </section>
+
+      <!-- 2. 隊史時間軸：4～6 項，依時間先後 -->
+      <section class="section" id="timeline">
+        <h2 class="section-title">隊史時間軸</h2>
+        <ol class="timeline">
+          <li class="timeline-item">
+            <span class="timeline-year">{{年份}}</span>
+            <div class="timeline-body">
+              <h3>{{標題，10 字內}}</h3>
+              <p>{{說明，1～2 句}}</p>
+            </div>
+          </li>
+        </ol>
+      </section>
+
+      <!-- 3. 代表球星：3～5 位 -->
+      <section class="section" id="legends">
+        <h2 class="section-title">代表球星</h2>
+        <ul class="legend-grid">
+          <li class="legend-card">
+            <h3>{{中文譯名}}<span class="en">{{英文全名}}</span></h3>
+            <p class="legend-era">{{在隊年份，例如 1996–2016}}</p>
+            <p>{{一句話說明他對球隊的意義}}</p>
+          </li>
+        </ul>
+      </section>
+
+      <!-- 4. 經典時刻：2～3 個 -->
+      <section class="section" id="moments">
+        <h2 class="section-title">經典時刻</h2>
+        <div class="moment-list">
+          <article class="moment-card">
+            <p class="moment-date">{{YYYY-MM-DD 或年份}}</p>
+            <h3>{{標題}}</h3>
+            <p>{{2～3 句描述}}</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- 5. 冠軍年份：數量必須等於 data/teams.js 的 championships；沒有冠軍就把 ul 換成 <p>尚未奪冠</p> -->
+      <section class="section" id="championships">
+        <h2 class="section-title">冠軍年份</h2>
+        <p class="title-count"><strong>{{數字}}</strong>座總冠軍</p>
+        <ul class="title-list">
+          <li>{{年份}}</li>
+        </ul>
+      </section>
+
+      <!-- 6. 參考資料：至少 2 個，其中一個必須是 Basketball-Reference -->
+      <section class="section" id="references">
+        <h2 class="section-title">參考資料</h2>
+        <ul class="ref-list">
+          <li><a href="https://www.basketball-reference.com/teams/{{三碼}}/" target="_blank" rel="noopener">Basketball-Reference：{{英文全名}} Franchise Index</a></li>
+          <li><a href="{{網址}}" target="_blank" rel="noopener">{{來源名稱}}</a></li>
+        </ul>
+      </section>
+
+      <!-- 其他球隊：由 main.js 自動產生，不要手動填 -->
+      <section class="more-teams">
+        <h2>看看其他球隊</h2>
+        <div data-team-nav></div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>本站為非官方粉絲介紹網站，與 NBA 及各球隊無關。球隊名稱與資料僅供學習用途。</p>
+      <p>資料更新至 {{YYYY}} 年 {{M}} 月</p>
+    </div>
+  </footer>
+
+  <script src="../data/teams.js"></script>
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>
