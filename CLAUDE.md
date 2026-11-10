@@ -138,3 +138,4 @@ nba-team-history/
 | celtics | 波士頓塞爾提克 | 東區 |
 | warriors | 金州勇士 | 西區 |
 | bulls | 芝加哥公牛 | 東區 |
+| timberwolves | 明尼蘇達灰狼 | 西區 |

@@ -57,5 +57,16 @@ window.TEAMS = [
     championships: 6,
     tagline: "兩度三連霸，喬丹打造的紅色王朝",
     colors: { primary: "#CE1141", secondary: "#FFFFFF" }
+  },
+  {
+    id: "timberwolves",
+    nameZh: "明尼蘇達灰狼",
+    nameEn: "Minnesota Timberwolves",
+    conference: "西區",
+    division: "西北組",
+    founded: 1989,
+    championships: 0,
+    tagline: "北國狼群，從賈奈特到愛德華茲",
+    colors: { primary: "#0C2340", secondary: "#78BE20" }
   }
 ];
