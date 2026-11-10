@@ -46,5 +46,16 @@ window.TEAMS = [
     championships: 7,
     tagline: "從費城到灣區，三分球改變了籃球",
     colors: { primary: "#1D428A", secondary: "#FFC72C" }
+  },
+  {
+    id: "bulls",
+    nameZh: "芝加哥公牛",
+    nameEn: "Chicago Bulls",
+    conference: "東區",
+    division: "中央組",
+    founded: 1966,
+    championships: 6,
+    tagline: "兩度三連霸，喬丹打造的紅色王朝",
+    colors: { primary: "#CE1141", secondary: "#FFFFFF" }
   }
 ];
