@@ -58,6 +58,9 @@ nba-team-history/
 - **深色運動風**：深色背景、白色文字，搭配每支球隊的代表色做重點色
 - 球隊代表色**只寫在 `data/teams.js`** 的 `colors.primary` / `colors.secondary`，
   由 `main.js` 自動套用成 CSS 變數 `--team-primary` / `--team-secondary`
+  - `primary`：球隊主色，用在 hero 背景與卡片色條，上面會放白色文字，所以要夠深
+  - `secondary`：重點色，用在深色背景上的數字與標記，所以要夠亮；若官方第二色是黑色或太暗，
+    改用官方配色中的其他顏色（通常是白色或金色），例如公牛用 `#FFFFFF`
 - **頁面裡不可以寫 inline style**（`style="..."`），也不可以在頁面裡寫 `<style>`
 - 所有樣式都在 `assets/css/style.css`；新增球隊**不需要也不應該**修改 CSS
 - **不使用 NBA 或球隊的官方 Logo、照片**（版權問題），只用代表色和文字呈現
@@ -134,3 +137,4 @@ nba-team-history/
 | lakers | 洛杉磯湖人 | 西區 |
 | celtics | 波士頓塞爾提克 | 東區 |
 | warriors | 金州勇士 | 西區 |
+| bulls | 芝加哥公牛 | 東區 |
