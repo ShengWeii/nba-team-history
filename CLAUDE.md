@@ -108,6 +108,11 @@ nba-team-history/
 5. 在 `data/teams.js` 的 `TEAMS` 陣列**最後面**加一筆資料，欄位格式照現有資料
 6. 更新本文件最下方的「目前已完成球隊」清單
 7. 依第 10 節的檢查清單逐項確認
+8. 檢查全部通過後，**自動 commit 並 push 到 GitHub**（使用者已同意，不需要再詢問）：
+   - 只 `git add` 這次新增或修改的檔案（`teams/<id>.html`、`data/teams.js`、`CLAUDE.md`），不要用 `git add -A`
+   - commit 訊息寫成「新增<中文全名>」，例如「新增明尼蘇達灰狼」
+   - `git push origin main`；若 push 失敗，把錯誤訊息告訴使用者，不可強制推送（不可用 `--force`）
+   - 完成後提醒使用者：GitHub Pages 約 1～2 分鐘後才會更新
 
 首頁卡片與各頁的「其他球隊」導覽會由 `main.js` 依 `data/teams.js` 自動產生，**不需要手動修改 `index.html`**。
 
@@ -127,6 +132,7 @@ nba-team-history/
 - [ ] 冠軍數與 `data/teams.js` 一致，年份都已查證
 - [ ] 首頁出現新球隊卡片，點進去能正常開啟
 - [ ] 已更新下方「目前已完成球隊」清單
+- [ ] 已 commit 並 push 到 GitHub（第 8 節步驟 8）
 
 ---
 
